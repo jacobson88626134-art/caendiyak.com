@@ -165,9 +165,26 @@
                 <a href="#faq" class="hover:text-blue-600 transition-colors">질문답변</a>
                 <a href="#products" class="hover:text-blue-600 transition-colors">제품목록</a>
             </nav>
-            <a href="#products" class="md:hidden bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md btn-active-effect">
-                바로주문
-            </a>
+            <div class="flex items-center gap-2">
+                <a href="#products" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md btn-active-effect">
+                    바로주문
+                </a>
+                <!-- 모바일 햄버거 버튼 -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-600 hover:text-blue-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- 모바일 드롭다운 메뉴 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-md absolute w-full left-0 top-16">
+            <nav class="flex flex-col p-4 text-center font-medium text-gray-700 divide-y divide-gray-50">
+                <a href="#about" class="mobile-link hover:text-blue-600 py-3">소개</a>
+                <a href="#reviews" class="mobile-link hover:text-blue-600 py-3">실제후기</a>
+                <a href="#faq" class="mobile-link hover:text-blue-600 py-3">질문답변</a>
+                <a href="#products" class="mobile-link hover:text-blue-600 py-3 text-blue-600 font-bold">제품목록</a>
+            </nav>
         </div>
     </header>
 
@@ -551,13 +568,6 @@
         </div>
     </footer>
 
-    <!-- 플로팅 버튼 (모바일 화면 하단) -->
-    <a href="#products" class="md:hidden fixed bottom-6 right-6 bg-blue-600 text-white rounded-full p-4 shadow-xl z-30 btn-active-effect flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-    </a>
-
     <!-- 주문 팝업 모달 (Hidden by default) -->
     <div id="orderModalOverlay" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity opacity-0">
         <div id="orderModal" class="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden flex flex-col max-h-[90vh] transform scale-95 transition-transform">
@@ -617,13 +627,30 @@
 
     <!-- 자바스크립트 -->
     <script>
-        // 모달 관련 요소 가져오기
+        // 모달 및 모바일 메뉴 관련 요소 가져오기
         const modalOverlay = document.getElementById('orderModalOverlay');
         const modalContent = document.getElementById('orderModal');
         const selectedProductNameEl = document.getElementById('selectedProductName');
         const productInputEl = document.getElementById('productInput');
         const orderForm = document.getElementById('orderForm');
         const toastMessage = document.getElementById('toastMessage');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // 모바일 메뉴 토글 로직
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // 모바일 메뉴 링크 클릭 시 메뉴 닫기 (자동 이동 후 시야 방해 방지)
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
 
         // 주문 모달 열기
         function openOrderModal(productName) {
