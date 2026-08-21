@@ -1,1 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+    <!-- 1. 메인 홈페이지 (가장 중요도 높음) -->
+    <url>
+        <loc>https://caendiyak.com/</loc>
+        <lastmod>2026-08-21T09:00:00+09:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- 2. 블로그 기사 1 : 정품 비아그라 구별법 -->
+    <url>
+        <loc>https://caendiyak.com/blog/how-to-check-genuine-viagra</loc>
+        <lastmod>2026-08-21T09:00:00+09:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 3. 블로그 기사 2 : 비아그라 vs 시알리스 비교 -->
+    <url>
+        <loc>https://caendiyak.com/blog/viagra-vs-cialis</loc>
+        <lastmod>2026-08-21T09:00:00+09:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 4. 블로그 기사 3 : 부작용 및 안전 복용 가이드 -->
+    <url>
+        <loc>https://caendiyak.com/blog/safe-dosage-guide</loc>
+        <lastmod>2026-08-21T09:00:00+09:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
